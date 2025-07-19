@@ -17,7 +17,7 @@ class Stack:
         self.elements = []
         self.size = 0
 
-    def size(self):
+    def get_size(self):
         return self.size
     
     def push(self, element):
@@ -38,25 +38,49 @@ class Stack:
         
         return self.elements[self.size - 1]
     
-class MinimumStack:
+class MinimumStack():
     ELEMENT = 0
     CUR_MINIMUM = 1
 
     def __init__(self):
         self.stack = Stack()
+        self.size = 0
 
     def push(self, element):
         prev_minimum = element
-        if self.stack.size() > 0:
-            prev_minimum = self.stack.peek()[self.CUR_MINIMUM]
+        if self.stack.size > 0:
+            prev_minimum = min(self.stack.peek()[self.CUR_MINIMUM], prev_minimum)
         
         self.stack.push((element, prev_minimum))
+        self.size += 1
 
     def pop(self):
-        return self.stack.pop()[self.ELEMENT]
+        element_to_return = self.stack.pop()[self.ELEMENT]
+        self.size -= 1
+        return element_to_return
     
     def peek(self):
         return self.stack.peek()[self.ELEMENT]
     
     def get_minimum(self):
         return self.stack.peek()[self.CUR_MINIMUM]
+    
+    def get_size(self):
+        return self.size
+    
+
+if __name__ == '__main__':
+    min_stack = MinimumStack()
+
+    min_stack.push(1)
+    min_stack.push(5)
+    min_stack.push(3)
+    min_stack.push(-2)
+    min_stack.push(0)
+
+    print(min_stack.get_size())
+
+    print(min_stack.peek())
+    print(min_stack.pop())
+    print(min_stack.peek())
+    print(min_stack.get_minimum())
