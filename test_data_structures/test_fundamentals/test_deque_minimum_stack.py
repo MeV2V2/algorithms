@@ -69,6 +69,18 @@ class TestMinimumStack(unittest.TestCase):
         stack.push(0)
         self.assertEqual(stack.get_minimum(), 0)
 
+    def test_is_empty(self):
+        stack = MinimumStack()
+        stack.push(1)
+        self.assertFalse(stack.is_empty())
+        stack.push(2)
+        self.assertFalse(stack.is_empty())
+        stack.pop()
+        self.assertFalse(stack.is_empty())
+        stack.pop()
+        self.assertTrue(stack.is_empty())
+        with self.assertRaises(IndexError):
+            stack.pop()
 
 if __name__ == '__main__':
     unittest.main()
