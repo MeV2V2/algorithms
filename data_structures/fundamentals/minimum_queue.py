@@ -1,3 +1,14 @@
+"""
+Author: Jaemin Park
+Date: 22/07/2025
+
+Description:
+Allows one to find the minimum element within a queue in O(1) time
+
+Appraoch:
+We use 2 minimum stacks in order to model the behaviours of a queue. We use minimum stacks which already allow us to find the minimum element in the stack in O(1) time. 
+"""
+
 from data_structures.fundamentals.deque_minimum_stack import MinimumStack
 
 class MinimumQueue:
