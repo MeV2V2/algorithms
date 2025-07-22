@@ -68,6 +68,9 @@ class MinimumStack:
     def get_size(self):
         return self.size
     
+    def is_empty(self):
+        return self.size == 0
+    
 
 if __name__ == '__main__':
     min_stack = MinimumStack()

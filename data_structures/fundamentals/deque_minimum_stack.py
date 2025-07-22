@@ -52,3 +52,6 @@ class MinimumStack:
     
     def get_size(self) -> int:
         return self.size
+    
+    def is_empty(self):
+        return self.size == 0
