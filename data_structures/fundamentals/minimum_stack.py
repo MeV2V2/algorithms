@@ -38,7 +38,7 @@ class Stack:
         
         return self.elements[self.size - 1]
     
-class MinimumStack():
+class MinimumStack:
     ELEMENT = 0
     CUR_MINIMUM = 1
 
